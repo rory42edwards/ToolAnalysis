@@ -206,7 +206,7 @@ double LAPPDFindT0::Tfit(std::vector<double>* wf)
 
           TGraph *edge = new TGraph();
           for(int j=-7; j<1; j++){
-            edge->SetPoint(j+7,(i+j)*100.,(wf->at(i+j)));
+            if(i+j>-1) edge->SetPoint(j+7,(i+j)*100.,(wf->at(i+j)));
           }
 
           bool firstthreshcross=true;
