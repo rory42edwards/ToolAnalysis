@@ -162,3 +162,7 @@
 #include "GetLAPPDEvents.h"
 #include "LAPPDDataDecoder.h"
 #include "PythonScript.h"
+#include "LAPPDHitBuilder.h"
+#include "LAPPDDecodeRawWaveform.h"
+#include "ExecuteCounter.h"
+#include "PlotHeatMaps.h"

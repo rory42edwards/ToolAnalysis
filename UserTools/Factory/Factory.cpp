@@ -154,5 +154,9 @@ if (tool=="checkLAPPDStatus") ret=new checkLAPPDStatus;
 if (tool=="GetLAPPDEvents") ret=new GetLAPPDEvents;
 if (tool=="LAPPDDataDecoder") ret=new LAPPDDataDecoder;
 if (tool=="PythonScript") ret=new PythonScript;
+if (tool=="LAPPDHitBuilder") ret=new LAPPDHitBuilder;
+if (tool=="LAPPDDecodeRawWaveform") ret=new LAPPDDecodeRawWaveform;
+if (tool=="ExecuteCounter") ret=new ExecuteCounter;
+if (tool=="PlotHeatMaps") ret=new PlotHeatMaps;
 return ret;
 }

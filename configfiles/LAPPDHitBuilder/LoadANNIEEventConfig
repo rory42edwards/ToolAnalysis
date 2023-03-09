@@ -1,0 +1,5 @@
+verbose 0
+EventOffset 0
+GlobalEvNr 1
+FileForListOfInputs ./configfiles/LAPPDHitBuilder/my_inputs.txt
+RunOnFiltered 1
