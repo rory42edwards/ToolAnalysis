@@ -1,4 +1,5 @@
 #include "VtxExtendedVertexFinder.h"
+#include <string>
 
 VtxExtendedVertexFinder::VtxExtendedVertexFinder():Tool(){}
 
@@ -45,6 +46,7 @@ bool VtxExtendedVertexFinder::Execute(){
   // check if event passes the cut
   bool EventCutstatus = false;
   auto get_evtstatus = m_data->Stores.at("RecoEvent")->Get("EventCutStatus",EventCutstatus);
+  std::cout<<"VtxExtendedVertexFinder Tool: EventCutStatus: "<<EventCutstatus<<std::endl;
   if(!get_evtstatus) {
     Log("Error: The PhaseITreeMaker tool could not find the Event selection status", v_error, verbosity);
     return false;	
@@ -54,6 +56,8 @@ bool VtxExtendedVertexFinder::Execute(){
   	Log("Message: This event doesn't pass the event selection. ", v_message, verbosity);
     return true;	
   }
+
+  selected_events += 1;
   
   // MC entry number
   m_data->Stores.at("ANNIEEvent")->Get("MCEventNum",fMCEventNum);  
@@ -138,6 +142,9 @@ bool VtxExtendedVertexFinder::Execute(){
 bool VtxExtendedVertexFinder::Finalise(){
   // memory has to be freed in the Finalise() function
   delete fExtendedVertex; fExtendedVertex = 0;
+  //std::cout<<"Number of events which passed the selection status this run: "<<selected_events<<std::endl;
+  std::string mylogmessage = "VtxExtendedVertexFinder: Number of events which passed the selection status this run: " + std::to_string(selected_events);
+  Log(mylogmessage,v_error,verbosity); 
   if(verbosity>0) cout<<"VtxExtendedVertexFinder exitting"<<endl;
   return true;
 }

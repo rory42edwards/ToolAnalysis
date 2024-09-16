@@ -4,7 +4,12 @@ MCParticleProperties MCParticleProperties ./configfiles/VertexReco/PhaseIIRecoTr
 MCRecoEventLoader MCRecoEventLoader ./configfiles/VertexReco/PhaseIIRecoTruth/MCRecoEventLoaderConfig
 #FindMrdTracks FindMrdTracks ./configfiles/FindMrdTracks/FindMrdTracksConfig
 DigitBuilder DigitBuilder ./configfiles/VertexReco/PhaseIIRecoTruth/DigitBuilderConfig
+#RorysLAPPDVertexReco RorysLAPPDVertexReco ./configfiles/VertexReco/PhaseIIRecoTruth/RorysLAPPDVertexRecoConfig
+### lappd digit builder - tool which makes fake digits - read in lappd data to create "fake" digits with charge, position, time - take reco lappd digits and make fake pmt digits
+### then take the hits which are close in time and sum up their time and charge to combine to single hits
+ClusterFinder ClusterFinder ./configfiles/VertexReco/PhaseIIRecoTruth/ClusterFinderConfig
+TimeCluster TimeClustering ./configfiles/VertexReco/PhaseIIRecoTruth/TimeClusterConfig
 EventSelector EventSelector ./configfiles/VertexReco/PhaseIIRecoTruth/EventSelectorConfig
 VtxExtendedVertexFinder VtxExtendedVertexFinder ./configfiles/VertexReco/PhaseIIRecoTruth/VtxExtendedVertexFinderConfig
 PhaseIITreeMaker PhaseIITreeMaker ./configfiles/VertexReco/PhaseIIRecoTruth/PhaseIITreeMakerConfig
-#SaveRecoEvent SaveRecoEvent ./configfiles/VertexReco/PhaseIIRecoTruth/SaveRecoEventConfig
+#####SaveRecoEvent SaveRecoEvent ./configfiles/VertexReco/PhaseIIRecoTruth/SaveRecoEventConfig

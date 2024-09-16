@@ -198,6 +198,9 @@ class PhaseIITreeMaker: public Tool {
   int fHasMRD;
 
   // ************ MC Truth Information **************** //
+  double lappd_reco_digits = 0;
+  double pmt_reco_digits = 0;
+
   uint64_t fMCEventNum;
   uint16_t fMCTriggerNum;
   int fiMCTriggerNum;

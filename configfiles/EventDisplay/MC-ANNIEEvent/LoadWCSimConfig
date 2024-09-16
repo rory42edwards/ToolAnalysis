@@ -3,8 +3,11 @@
 
 verbose 1
 #InputFile /pnfs/annie/persistent/users/moflaher/wcsim/multipmt/tankonly/wcsim_25_04_19_ANNIEp2v6_nodigit_BNB_Water_10k_22-05-17/wcsim_0.0.17.root
-InputFile /pnfs/annie/persistent/users/mnieslon/wcsim/output/tankonly/wcsim_19-09-19_ANNIEp2v6_beamlike_electron/wcsim_beamlike_electron_FV_0.396.root
+#InputFile /pnfs/annie/persistent/users/mnieslon/wcsim/output/tankonly/wcsim_19-09-19_ANNIEp2v6_beamlike_electron/wcsim_beamlike_electron_FV_0.396.root
 #InputFile /annie/app/users/mnieslon/MyToolAnalysis/wcsim_beamlike_electrons_FV_0_499.root
+#InputFile data/wcsim_1000_muons_500MeV_gaussian.root
+#InputFile data/wcsim_beam/1026/pmt/wcsim_beam_gst_1026_0_0.3200.root
+InputFile ./data/wcsim_beam/1078/pmt-files/wcsim_beam_gst_1078_0_0.8900.root
 
 WCSimVersion 3               ## should reflect the WCSim version of the files being loaded
 HistoricTriggeroffset 0      ## time offset of digits relative to the trigger

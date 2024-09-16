@@ -1,12 +1,20 @@
 # EventSelector config file
 
-verbosity 5
+verbosity 1
+#MCIsMuonCut 1
+MCIsMuonCut 1
 MCPMTVolCut 0
+#MCFVCut 1
 MCFVCut 1
-MCMRDCut 0
+#MCMRDCut 1
+MCMRDCut 1
+#IsMC 1
+IsMC 1
 MCPiKCut 0
 MRDRecoCut 0
 RecoPMTVolCut 0
-RecoFVCut 1
-NHitCut 1
-PromptTrigOnly 1
+RecoFVCut 0
+TrueFVCut 0
+TruePMTVolCut 0
+NHitCut 4
+PromptTrigOnly 0

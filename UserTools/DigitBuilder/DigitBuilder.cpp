@@ -261,6 +261,7 @@ bool DigitBuilder::BuildMCPMTRecoDigit() {
           // Do median and sum
           std::sort(hitTimes.begin(), hitTimes.end());
           size_t timesize = hitTimes.size();
+          std::cout<<"hitTimes.size(): "<<hitTimes.size()<<std::endl;
           if (timesize == 0) continue;
           if (timesize % 2 == 0){
             calT = (hitTimes.at(timesize/2 - 1) + hitTimes.at(timesize/2))/2;
@@ -282,6 +283,7 @@ bool DigitBuilder::BuildMCPMTRecoDigit() {
 				    digitType = RecoDigit::PMT8inch;
 				    RecoDigit recoDigit(region, pos_reco, calT, calQ, digitType, PMTId);
 				    fDigitList->push_back(recoDigit); 
+                    std::cout<<"pushing a PMT recodigit"<<std::endl;
 				  }
         } else {
 			    for(MCHit& ahit : hits){
@@ -300,6 +302,7 @@ bool DigitBuilder::BuildMCPMTRecoDigit() {
 				  	RecoDigit recoDigit(region, pos_reco, calT, calQ, digitType, PMTId);
 				    //recoDigit.Print();
 				    fDigitList->push_back(recoDigit); 
+                    std::cout<<"pushing a PMT recodigit"<<std::endl;
           }
 			  }
       }
@@ -374,6 +377,7 @@ bool DigitBuilder::BuildMCLAPPDRecoDigit() {
 				  //make some cuts here. It will be moved to the Hitcleaning tool
 				  if(calT>40 || calT<-10) continue; // cut off delayed hits
 				  fDigitList->push_back(recoDigit);
+                  std::cout<<"pushing an LAPPD recodigit"<<std::endl;
 				}
 			}
 		} // end loop over MCLAPPDHits
@@ -551,6 +555,7 @@ bool DigitBuilder::BuildDataPMTRecoDigit(){
 void DigitBuilder::PushRecoDigits(bool savetodisk) {
 	Log("DigitBuilder Tool: Push reconstructed digits to the RecoEvent store",v_message,verbosity);
 	m_data->Stores.at("RecoEvent")->Set("RecoDigit", fDigitList, savetodisk);  ///> Add digits to RecoEvent
+    std::cout<<"size of fDigitlist: "<<fDigitList->size()<<std::endl;
 }
 
 void DigitBuilder::Reset() {

@@ -1,6 +1,8 @@
-LoadANNIEEvent LoadANNIEEvent ./configfiles/ClusterFinder/LoadANNIEEventConfig
+#LoadANNIEEvent LoadANNIEEvent ./configfiles/ClusterFinder/LoadANNIEEventConfig
+LoadWCSim LoadWCSim ./configfiles/VertexReco/PhaseIIRecoTruth/LoadWCSimConfig
+LoadWCSimLAPPD LoadWCSimLAPPD ./configfiles/VertexReco/PhaseIIRecoTruth/LoadWCSimLAPPDConfig
 LoadGeometry LoadGeometry ./configfiles/ClusterFinder/LoadGeometryConfig
-PhaseIIADCCalibrator PhaseIIADCCalibrator ./configfiles/ClusterFinder/PhaseIIADCCalibratorConfig
-PhaseIIADCHitFinder PhaseIIADCHitFinder ./configfiles/ClusterFinder/PhaseIIADCHitFinderConfig
+#PhaseIIADCCalibrator PhaseIIADCCalibrator ./configfiles/ClusterFinder/PhaseIIADCCalibratorConfig
+#PhaseIIADCHitFinder PhaseIIADCHitFinder ./configfiles/ClusterFinder/PhaseIIADCHitFinderConfig
 #PrintADCData PrintADCData ./configfiles/ClusterFinder/PrintADCDataConfig
 ClusterFinder ClusterFinder ./configfiles/ClusterFinder/ClusterFinderConfig

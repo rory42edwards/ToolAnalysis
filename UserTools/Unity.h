@@ -175,3 +175,5 @@
 #include "PlotsTrackLengthAndEnergy.h"
 #include "SaveConfigInfo.h"
 #include "ReadConfigInfo.h"
+#include "MyWCSimHitPlotter.h"
+#include "RorysLAPPDVertexReco.h"

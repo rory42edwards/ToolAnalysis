@@ -1,6 +1,6 @@
 # DigitBuilder config file
 
-verbosity 4
+verbosity 0
 ParametricModel 1
 #Reading in MC files
 IsMC 1

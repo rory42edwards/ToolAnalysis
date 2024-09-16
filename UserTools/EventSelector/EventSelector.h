@@ -59,6 +59,7 @@ class EventSelector: public Tool {
   } EventFlags_t;
 
  private:
+  int selected_events = 0;
  	
   /// Clear reconstruction info.
   void Reset();

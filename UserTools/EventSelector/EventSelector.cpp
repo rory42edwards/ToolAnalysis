@@ -358,6 +358,8 @@ bool EventSelector::Execute(){
   }
   if(fSaveStatusToStore) {
     m_data->Stores.at("RecoEvent")->Set("EventCutStatus", fEventCutStatus);
+    selected_events++;
+    std::cout<<"EventSelector Tool: EventCutStatus: "<<fEventCutStatus<<std::endl;
     m_data->Stores.at("ANNIEEvent")->Set("EventCutStatus", fEventCutStatus);
   }
   m_data->Stores.at("RecoEvent")->Set("EventFlagApplied", fEventApplied);
@@ -379,6 +381,8 @@ bool EventSelector::Execute(){
 
 
 bool EventSelector::Finalise(){
+  std::string mylogmessage = "EventSelectorTool: Number of events which passed the selection status this run: " + std::to_string(selected_events);
+  Log(mylogmessage,v_error,verbosity); 
   if(verbosity>0) cout<<"EventSelector exitting"<<endl;
   delete vec_pmtclusters_charge;
   delete vec_pmtclusters_time;

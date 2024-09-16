@@ -380,6 +380,8 @@ bool PhaseIITreeMaker::Initialise(std::string configfile, DataModel &data){
     // Difference in MC Truth and Muon Reconstruction Analysis
     // Output to tree when muonTruthRecoDiff_fill = 1 in config
     if (muonTruthRecoDiff_fill){
+      fPhaseIITrigTree->Branch("lappd_reco_digits_truth",&lappd_reco_digits,"lappd_reco_digits_truth/D");
+      fPhaseIITrigTree->Branch("pmt_reco_digits_truth",&pmt_reco_digits,"pmt_reco_digits_truth/D");
       fPhaseIITrigTree->Branch("deltaVtxX",&fDeltaVtxX,"deltaVtxX/D");
       fPhaseIITrigTree->Branch("deltaVtxY",&fDeltaVtxY,"deltaVtxY/D");
       fPhaseIITrigTree->Branch("deltaVtxZ",&fDeltaVtxZ,"deltaVtxZ/D");
@@ -1765,6 +1767,10 @@ void PhaseIITreeMaker::FillTruthRecoDiffInfo(bool successful_mcload,bool success
   } else {
     //Make sure MCTruth Information is loaded from store
     //Let's fill in stuff from the RecoSummary
+    m_data->Stores.at("RecoEvent")->Get("NumLAPPDDigits",lappd_reco_digits);
+    m_data->Stores.at("RecoEvent")->Get("NumPMTDigits",pmt_reco_digits);
+    //m_data->CStore.Get("NumLAPPDDigits", lappd_reco_digits);
+    std::cout<<"LAPPD RECO DIGITS: "<<lappd_reco_digits<<std::endl;
     fDeltaVtxX = fRecoVtxX - fTrueVtxX;
     fDeltaVtxY = fRecoVtxY - fTrueVtxY;
     fDeltaVtxZ = fRecoVtxZ - fTrueVtxZ;

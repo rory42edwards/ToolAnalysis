@@ -80,6 +80,8 @@ class VtxExtendedVertexFinder: public Tool {
   int get_ok;
   TH1D pdf;
   
+  int selected_events = 0;
+  
 
 
 
