@@ -1,2 +1,3 @@
 verbosity 0
-AddFakeLAPPDDigits 0
+AddFakeLAPPDDigits true
+LAPPDIDFile ./configfiles/VertexReco/PhaseIIRecoTruth/LAPPDIDs.txt

@@ -18,3 +18,4 @@ TrueFVCut 0
 TruePMTVolCut 0
 NHitCut 4
 PromptTrigOnly 0
+TriggerWord 5

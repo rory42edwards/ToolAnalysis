@@ -3,8 +3,13 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include "Tool.h"
+#include "ANNIEGeometry.h"
+#include "Detector.h"
+#include "TRandom3.h"
+#include "Vec3.h"
 
 
 /**
@@ -26,18 +31,36 @@ class RorysLAPPDVertexReco: public Tool {
   bool Execute(); ///< Execute function used to perform Tool purpose.
   bool Finalise(); ///< Finalise function used to clean up resources.
   std::vector<RecoDigit> ExtractLAPPDDigits(std::vector<RecoDigit>* DigitList);
+  void ReadLAPPDIDFile();
+  std::map<int, std::vector<MCLAPPDHit>> SortHitsToQuadrants(const std::vector<MCLAPPDHit>& LAPPDHits);
+  std::vector<Vec3> CalculateQuadrantCentres(const Vec3& LAPPDCentre, const Vec3& LAPPDDirection);
+  bool BuildMCLAPPDRecoDigits(std::vector<RecoDigit>* DigitList, std::map<unsigned long, std::vector<MCLAPPDHit>>& newLAPPDHits);
 
 
  private:
+    //Shifts needed for simulation package in use (in cm)
+    //Defaults to values needed for WCSim MC data
+    double xshift = 0.0;
+    double yshift = 14.46469;
+    double zshift = -168.1;
     int number_of_pmt_digits = 0;
     int number_of_lappd_digits = 0;
     int number_of_all_digits = 0;
     int number_of_pmt_hits = 0;
     int number_of_lappd_hits = 0;
-    std::vector<RecoDigit>* FakeDigitList;
+    std::vector<RecoDigit>* FakeDigitList = nullptr;
     bool AddFakeLAPPDDigits = true;
     int verbosity = 0;
-
+    std::string fLAPPDIDFile="none";
+    std::vector<int> fLAPPDId;
+    std::map<unsigned long,int> detectorkey_to_lappdid;
+    int v_error=0;
+    int v_warning=1;
+    int v_message=2;
+    int v_debug=3;
+    std::string logmessage;
+    Geometry* fGeometry = nullptr;
+    TRandom3 frand;
   //std::map<unsigned long,std::vector<MCHit>>* fMCPMTHits=nullptr;             ///< PMT hits
   //std::map<unsigned long,std::vector<MCLAPPDHit>>* fMCLAPPDHits=nullptr;   ///< LAPPD hits
 
